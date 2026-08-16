@@ -482,6 +482,7 @@ async function main() {
           eq(schema.quizAttempts.studentId, firstStudent[0].id),
           eq(schema.quizAttempts.status, 'STARTED')
         )
+      )
       .limit(1)
     if (!existingAttempt[0]) {
       await db.insert(schema.quizAttempts).values({
@@ -496,6 +497,7 @@ async function main() {
   }
 
   console.log('Seed selesai:', counts)
+}
 
 main().catch((err) => {
   console.error('Seed gagal:', err)
