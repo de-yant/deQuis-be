@@ -38904,6 +38904,14 @@ router4.delete("/badges/:id", requireSuperAdmin, async (req, res) => {
 var app = (0, import_express5.default)();
 app.use((0, import_cors.default)({ origin: process.env.CORS_ORIGIN || "*" }));
 app.use(import_express5.default.json());
+app.get("/", (_req, res) => {
+  res.json({
+    status: "ok",
+    name: "deQuis API",
+    version: "1.0.0",
+    docs: "/api/health"
+  });
+});
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", name: "deQuis API", version: "1.0.0" });
 });
