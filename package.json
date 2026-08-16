@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "tsx watch server/index.ts",
     "start": "tsx server/index.ts",
-    "build": "echo 'Build skipped - TypeScript check skipped for Vercel'",
+    "build": "node scripts/build.js",
     "db:push": "drizzle-kit push --force",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -20,6 +20,7 @@
     "@types/express": "^5.0.6",
     "@types/node": "^26.2.0",
     "drizzle-kit": "^0.31.10",
+    "esbuild": "^0.28.2",
     "tsx": "^4.23.12",
     "typescript": "^7.0.2"
   },
