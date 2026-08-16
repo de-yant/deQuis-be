@@ -6,8 +6,7 @@
   "installCommand": "echo 'skip install'",
   "functions": {
     "api/index.js": {
-      "maxDuration": 30,
-      "includeFiles": ["server/**", "drizzle.config.ts", "drizzle.pg.config.ts", "package.json"]
+      "maxDuration": 30
     }
   },
   "rewrites": [
