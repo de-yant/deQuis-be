@@ -35,6 +35,30 @@ async function runBuild() {
     sourcemap: false,
   });
 
+  console.log('Building api/index.ts...');
+  try {
+    await esbuild({
+      entryPoints: ['api/index.ts'],
+      bundle: true,
+      platform: 'node',
+      target: 'node20',
+      format: 'esm',
+      outdir: join(outDir, 'api'),
+      external: ['../dist/server/index.js'],
+      format: 'esm',
+      define: {
+        'process.env.NODE_ENV': '"production"'
+      },
+      treeShaking: true,
+      minify: false,
+      sourcemap: false,
+    });
+    console.log('API build completed');
+  } catch (error) {
+    console.error('API build failed:', error);
+    throw error;
+  }
+
   // Copy non-TypeScript files (drizzle config, etc.)
   const filesToCopy = [
     'drizzle.config.ts',
