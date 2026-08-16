@@ -3,9 +3,11 @@
   "version": 2,
   "buildCommand": "echo 'Build skipped'",
   "outputDirectory": ".",
+  "installCommand": "npm install --legacy-peer-deps",
   "functions": {
     "api/index.ts": {
-      "maxDuration": 30
+      "maxDuration": 30,
+      "runtime": "nodejs20.x"
     }
   },
   "rewrites": [
