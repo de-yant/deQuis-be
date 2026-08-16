@@ -35,26 +35,6 @@ async function runBuild() {
     sourcemap: false,
   });
 
-  // Build api/index.ts -> dist/api/index.js
-  await esbuild({
-    entryPoints: ['api/index.ts'],
-    bundle: true,
-    platform: 'node',
-    target: 'node20',
-    format: 'esm',
-    outdir: join(outDir, 'api'),
-    external: [],
-    banner: {
-      js: 'import { createRequire } from "module"; import { fileURLToPath } from "url"; import { dirname, resolve } from "path"; const require = createRequire(import.meta.url); const __filename = fileURLToPath(import.meta.url); const __dirname = dirname(__filename);'
-    },
-    define: {
-      'process.env.NODE_ENV': '"production"'
-    },
-    treeShaking: true,
-    minify: false,
-    sourcemap: false,
-  });
-
   // Copy non-TypeScript files (drizzle config, etc.)
   const filesToCopy = [
     'drizzle.config.ts',

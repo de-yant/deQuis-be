@@ -12,6 +12,15 @@ const app = express()
 app.use(cors({ origin: process.env.CORS_ORIGIN || '*' }))
 app.use(express.json())
 
+app.get('/', (_req, res) => {
+  res.json({ 
+    status: 'ok', 
+    name: 'deQuis API', 
+    version: '1.0.0',
+    docs: '/api/health'
+  })
+})
+
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', name: 'deQuis API', version: '1.0.0' })
 })
